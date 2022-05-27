@@ -9,5 +9,5 @@ inputs:
   reg_rate: 0.01
 environment: azureml:AzureML-sklearn-0.24-ubuntu18.04-py37-cpu@latest
 compute: azureml:dp100mlopstestcompute
-experiment_name: pipeline1
-description: trainig a pipeline
+experiment_name: "pipeline1"
+description: "trainig a pipeline"
