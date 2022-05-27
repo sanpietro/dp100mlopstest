@@ -1,9 +1,8 @@
 $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
 code: model
 command: >-
-  echo "--training_data: ${{inputs.training_data}}/diabetes.csv"
-  echo "--reg_rate: ${{inputs.reg_rate}}"
   python train.py
+  --training_data ${{inputs.training_data}}
 inputs:
   training_data: 
     type: uri_folder 
