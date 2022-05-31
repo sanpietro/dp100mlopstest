@@ -7,8 +7,6 @@ jobs:
   if_merged:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
-    steps:
-    - name: |
-        trigger_trigger_pipeline
-      uses: ./.github/workflows/trigger_pipeline
+    steps: |
+      - uses: actions/Trigger@pipeline
         
