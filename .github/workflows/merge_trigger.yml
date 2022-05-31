@@ -7,6 +7,15 @@ jobs:
   if_merged:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
-    steps: |
-      - uses: actions/Trigger@pipeline
+    steps:
+    - name: check out repo
+      uses: actions/checkout@v2
+    - name: install az ml extension
+      run: az extension add -n ml -y
+    - name: azure login
+      uses: azure/login@v1
+      with:
+        creds: ${{secrets.AZURE_CREDENTIALS}}
+    - name: run pipeline
+      run: az ml job create --file src/job.yml --resource-group rg-dev-mlops --workspace-name mlw-dev-mlops
         
